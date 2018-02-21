@@ -1,3 +1,17 @@
 #!/bin/bash
 
+WORKSTATION_CONFIG_DIR=~/Documents/configuration/workstation
+DOC_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
 sudo apt-get install zeal
+brew install dasht
+
+if [ ! -d "$HOME/.local/share/documentation" ]; then
+    mkdir -p "$HOME/.local/share/documentation"
+fi
+
+cp --update "$DOC_RECIPE_DIR/files/Zeal.conf" "$HOME/.config/Zeal/Zeal.conf"
+
+if [ ! -f  "$WORKSTATION_CONFIG_DIR/zsh/documentation.zsh" ]; then
+    echo "export DASHT_DOCSETS_DIR=$HOME/.local/share/documentation/docsets" > "$WORKSTATION_CONFIG_DIR/zsh/documentation.zsh"
+fi
