@@ -3,8 +3,11 @@
 WORKSTATION_CONFIG_DIR=~/Documents/configuration/workstation
 DOC_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-sudo apt-get install zeal
-brew install dasht
+if ! command -v zeal > /dev/null 2>&1; then
+    sudo apt-get install zeal
+fi
+
+shef brew dasht
 
 if [ ! -d "$HOME/.local/share/documentation" ]; then
     mkdir -p "$HOME/.local/share/documentation"
