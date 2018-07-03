@@ -4,7 +4,7 @@ WORKSTATION_CONFIG_DIR=~/Documents/configuration/workstation
 DOC_RECIPE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 if ! command -v zeal > /dev/null 2>&1; then
-    sudo apt-get install zeal
+    shef apt zeal
 fi
 
 shef brew dasht
