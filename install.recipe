@@ -1,0 +1,3 @@
+apt "Installing zeal"; do
+    package "zeal"
+done
